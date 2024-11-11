@@ -44,7 +44,7 @@ app.get('/protected', authMiddleware, (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
-  //res.setHeader('WWW-Authenticate', `Basic realm="${realm}"`);
+  res.setHeader('WWW-Authenticate', `Basic realm="${realm}"`);
   res.status(401).send('Has sido deslogueado');
 });
 
@@ -54,6 +54,6 @@ app.get('/', (req, res) => {
 });
 
 // Iniciar el servidor
-app.listen(3000, () => {
-  console.log('Servidor escuchando en http://localhost:3000');
+app.listen(5000, () => {
+  console.log('Servidor escuchando en http://localhost:5000');
 });
