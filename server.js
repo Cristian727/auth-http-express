@@ -43,6 +43,10 @@ app.get('/protected', authMiddleware, (req, res) => {
   res.send(`Bienvenido ${username}, has accedido a una ruta protegida.`);
 });
 
+app.get('/mensaje', authMiddleware, (req, res) => {
+  res.send('Este es un mensaje secreto que solo se ve si estás logeado.');
+});
+
 app.get('/logout', (req, res) => {
   res.setHeader('WWW-Authenticate', `Basic realm="${realm}"`);
   res.status(401).send('Has sido deslogueado');
